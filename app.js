@@ -12,10 +12,30 @@ app.use(bodyParser.json());
 
 // TODO : edit mqtt server url.
 // mqtt
-// const client = mqtt.connect("mqtt://broker.mqtt-dashboard.com");  
-// client.on("connect", ()=>{
-//     console.log("mqtt connect");
-// })
+const client = mqtt.connect("mqtt://broker.mqtt-dashboard.com");  
+client.on("connect", ()=>{
+    console.log("mqtt connect");
+    client.subscribe("tact"); // get tact data.
+})
+
+const soundSchema = require('./models/sound');
+
+client.on("message", async(topic, message)=>{
+    var obj = JSON.parse(message);
+
+    try{ // Mongoose Model.update를 이용한 updateOne(condition, update first document, err)
+         await soundSchema.updateOne( {"id" : obj.id}, {"tact" : obj.tact}, function(err, docs){
+             if(err){
+                 console.log(err);
+             }else{
+                 console.log("Updated Dosc : ", docs);
+             }
+         });
+    }catch(err){
+        console.log(err);
+    }
+})
+
 
 // server
 app.set("port", "3000");
