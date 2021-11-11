@@ -6,7 +6,19 @@ const http = require('http');
 const mongoose = require('mongoose');
 require('dotenv/config');
 
+//json parser
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
+// TODO : edit mqtt server url.
+// mqtt
+// const client = mqtt.connect("mqtt://broker.mqtt-dashboard.com");  
+// client.on("connect", ()=>{
+//     console.log("mqtt connect");
+// })
+
+// server
+app.set("port", "3000");
 var server = http.createServer(app);
 server.listen(3000, (err)=>{
     if(err){
