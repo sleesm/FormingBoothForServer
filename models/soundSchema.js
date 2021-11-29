@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const soundSchema = mongoose.Schema({
-    "id" : Int32Array,
+    "id" : Number,
 	"name" : String,
 	"sign" : {
 		"tact" : Boolean,
