@@ -52,10 +52,10 @@ client.on("message", async(topic, message)=>{
         }
     });
     
-    if(tactState == untactState)
-    {
-        res.json({interaction : true});
-    }
+    if(state == untactState)
+        res.send(200, 1);
+    else
+        res.send(200, 0);
     
     try{ // Mongoose Model.update를 이용한 updateOne(condition, update first document, err)
         await soundSchema.updateOne( {"id" : id}, {"untact" : untactState}, function(err, docs){
