@@ -36,8 +36,6 @@ client.on("message", async(topic, message)=>{
     }
 })
 
-
-
 //untact (unity)
  app.get("/sound/untact" , async(req, res)=>{
     var id = req.body.id;
@@ -52,7 +50,7 @@ client.on("message", async(topic, message)=>{
         }
     });
     
-    if(state == untactState)
+    if(tactState == untactState)
         res.send(200, 1);
     else
         res.send(200, 0);
@@ -68,7 +66,6 @@ client.on("message", async(topic, message)=>{
    }catch(err){
        console.log(err);
    }
-
  });
 
 app.listen(3000, (err)=>{
