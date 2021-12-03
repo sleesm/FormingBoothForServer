@@ -25,7 +25,7 @@ router.get("/untact" , (req, res)=>{ //sound/untact
  });
 
  router.get("/telephone/update" , (req, res)=>{ //telephone/update
-    var nums = req.body.numArray;
+    var nums = req.body;
     // DB nums에 있는 숫자 +1
 
     // unity topic update  
