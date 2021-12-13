@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {testConnection} = require('./MqttConnection');
-const {updateUnitySign} = require('./UnityConnection');
+const {untactMQTTConnect, tactMqttResult} = require('./MqttConnection');
 
+/***********mqtt**************/
 router.get("/untact" , (req, res)=>{ //sound/untact
-   // res.send("Hello world");
-    console.log("untact in");
-    // unity topic update
-    // updateUnitySign(res, req);
-    testConnection(req, res);
- });
- 
+   console.log("untact in");
+   untactMQTTConnect(req,res);
+   tactMqttResult(req,res);
+});
 
- module.exports = router;
+module.exports = router;
