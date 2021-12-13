@@ -14,18 +14,21 @@ const onlineTopic = "online";
 const offlineTopic = "offline";
 
 async function testConnection(req, res){
-    device.on("connect", ()=>{//(topic, payload)=>{
-        // console.log("aws iot device connect");
-        // console.log(`topic : ${topic}  message : ${payload}`);
-        // res.send(`topic : ${topic}  message : ${payload}`);
+    console.log("testConnection");
 
-        //subscribe
-        device.subscribe(offlineTopic);
-        const connectionMsg = {meessage : "successful connection"};
-        device.publish(offlineTopic, JSON.stringify(connectionMsg));
-        res.send(`topic : ${offlineTopic}  message : successful connection`);
-    });
+    device.on("connect", ()=>{//(topic, payload)=>{
+        console.log("aws iot device connect");
+       // console.log(`topic : ${topic}  message : ${payload}`);
+       // res.send(`topic : ${topic}  message : ${payload}`);
+   
+       //subscribe
+       device.subscribe(offlineTopic);
+       const connectionMsg = {"message" : "successful connection"};
+       device.publish(offlineTopic, JSON.stringify(connectionMsg));
+       res.send(`topic : ${offlineTopic}  message : successful connection`);
+   });
 }
+
 
 module.exports = {
     testConnection
