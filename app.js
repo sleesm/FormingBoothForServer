@@ -9,11 +9,12 @@ require('dotenv/config');
 app.use(express.urlencoded({extended : false}));
 app.use(bodyParser.json());
 
-const SoundSignUpdateRouter = require('./routes/SoundSignUpdate');
-
+const SoundSignUpdateRouter = require('./routers/SoundSignUpdate');
+const Telephone = require('./routers/TelephoneUpdate')
 app.use('/sound', SoundSignUpdateRouter);
+app.use('/telephone', Telephone);
 
-
+const {settingMqtt} = require('./routers/MqttConnection');
 
 app.listen(3000, (err)=>{
     if(err) 
@@ -26,6 +27,6 @@ app.listen(3000, (err)=>{
                 console.log("connected DB");
             }
         });
+        settingMqtt();
     }
 });
-
