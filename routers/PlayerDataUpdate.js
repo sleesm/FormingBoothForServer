@@ -30,7 +30,6 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).send(err));
  });
  
- 
  router.get('/getCurrentScene', (req, res) => {
     console.log("getCurrentScene");
 
@@ -42,6 +41,16 @@ router.get('/', (req, res) => {
       })
     .catch(err => res.status(500).send(err));
  });
+
+ router.get('/setCurrentScene', (req, res) => {
+  console.log("currentScene update");
+
+  Player.findOneAndUpdate({"date" : req.body.date, "round" : req.body.round, "email" : req.body.email}, {$set: {"currentScene" : req.body}})
+  .then((playerData) => {
+     if (!playerData) return res.status(404).send({ err: 'playerData not found' });
+  })
+  .catch(err => res.status(500).send(err));
+}); 
  
  router.get('/setIsExist', (req, res) => {
   console.log("isExist update");
