@@ -11,8 +11,11 @@ app.use(bodyParser.json());
 
 const SoundSignUpdateRouter = require('./routers/SoundSignUpdate');
 const Telephone = require('./routers/TelephoneUpdate')
+const Player = require('./routers/PlayerDataUpdate')
+
 app.use('/sound', SoundSignUpdateRouter);
 app.use('/telephone', Telephone);
+app.use('/player', Player);
 
 const {settingMqtt} = require('./routers/MqttConnection');
 
