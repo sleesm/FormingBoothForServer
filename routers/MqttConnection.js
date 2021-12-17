@@ -51,8 +51,8 @@ function untactMQTTConnect(req, res){
     var state = (req.body.state == true)? 1 : 0;
 
     console.log(objectId + ":" + state)
-    const connectionMsg = {objectId : state};
-    device.publish(onlineTopic, JSON.stringify(connectionMsg));
+    const connectionMsg = `${objectId}:${state}`;
+    device.publish(onlineTopic, connectionMsg);
 }
 
 module.exports = {
