@@ -1,9 +1,9 @@
 const awsIot = require('aws-iot-device-sdk');
 
 let device = new awsIot.device({
-    keyPath : "routes/data/forming.private.key",//"forming.private.key",
-    certPath : "routes/data/forming-certificate.pem.crt",
-    caPath : "routes/data/root-CA.crt",
+    keyPath : "routers/data/forming.private.key",//"forming.private.key",
+    certPath : "routers/data/forming-certificate.pem.crt",
+    caPath : "routers/data/root-CA.crt",
     clientId : "node_aws_testing",
     host : "a2egxqaxyh0b7v-ats.iot.ap-northeast-2.amazonaws.com"
 })
@@ -48,7 +48,7 @@ function tactMqttResult(req, res){
 
 function untactMQTTConnect(req, res){
     var objectId = req.body.id;
-    var state = req.body.state;
+    var state = (req.body.state == true)? 1 : 0;
 
     console.log(objectId + ":" + state)
     const connectionMsg = {objectId : state};
