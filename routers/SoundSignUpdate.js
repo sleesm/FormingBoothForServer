@@ -9,4 +9,8 @@ router.get("/untact" , (req, res)=>{ //sound/untact
    tactMqttResult(req,res);
 });
 
+router.get("/untact/getData" , (req, res)=>{ //sound/untact
+   tactMqttResult(req,res);
+});
+
 module.exports = router;
