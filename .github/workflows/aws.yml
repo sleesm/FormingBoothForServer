@@ -1,0 +1,66 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-18.04
+    strategy:
+          matrix:
+            node-version: [14.x]
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout source code.
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+           
+      - name: Create env file
+        run: |
+          touch .env
+          echo MONGODB_URL=${{ secrets.MONGODB_URL }} >> .env
+          cat .env
+
+      - name: npm install, build
+        run: |
+          # Build the project, then
+          # deploy to Azure Web App.
+          npm install
+      
+      - name: Make zip file
+        run: zip -r formingbooth_sound.zip .
+
+      - name: AWS configure credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: S3 업로드
+        run: aws s3 cp --region ap-northeast-2 ./formingbooth_sound.zip s3://formingbooth/public/
+
+      - name: Code Deploy
+        run: aws deploy create-deployment 
+          --application-name forming-codedeploy
+          --deployment-config-name CodeDeployDefault.OneAtATime
+          --deployment-group-name formingdeploygroup
+          --s3-location bucket=formingbooth,bundleType=zip,key=public/formingbooth_sound.zip
