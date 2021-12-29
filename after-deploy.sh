@@ -1,3 +1,3 @@
  echo "> FE 배포"
 
- sudo cp -rf /home/ubuntu/forming/dist/* 
+ sudo cp -r /home/ubuntu/forming/dist/* 
