@@ -53,7 +53,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./ s3://formingbooth/public/
+        run: aws s3 cp --region ap-northeast-2 . s3://formingbooth/public/
 
       - name: Code Deploy
         run: aws deploy create-deployment 
