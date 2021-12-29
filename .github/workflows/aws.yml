@@ -36,8 +36,8 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo MONGODB_URL=${{ secrets.MONGODB_URL }} >> .env
-          cat .env
+          cat << EOF >> .env
+          ${{ secrets.ENV }}
 
       - name: npm install, build
         run: |
