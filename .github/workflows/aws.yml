@@ -38,7 +38,7 @@ jobs:
           touch .env
           cat << EOF >> .env
           ${{ secrets.ENV }}
-
+          
       - name: npm install, build
         run: |
           # Build the project, then
