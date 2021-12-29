@@ -44,9 +44,6 @@ jobs:
           # Build the project, then
           # deploy to Azure Web App.
           npm install
-      
-      - name: Make zip file
-        run: zip -r formingbooth_sound.zip .
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -56,11 +53,11 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./formingbooth_sound.zip s3://formingbooth/public/
+        run: aws s3 cp --region ap-northeast-2 ./formingbooth_sound s3://formingbooth/public/
 
       - name: Code Deploy
         run: aws deploy create-deployment 
           --application-name forming-codedeploy
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name formingdeploygroup
-          --s3-location bucket=formingbooth,bundleType=zip,key=public/formingbooth_sound.zip
+          --s3-location bucket=formingbooth,bundleType=zip,key=public/
