@@ -41,21 +41,21 @@ jobs:
           
       - name: Create forming certificate file
         run: |
-          working-directory: /routers/data/
+          working-directory: ./routers/data/
           touch forming-certificate.pem.crt
           cat << EOF >> forming-certificate.pem.crt
           ${{ secrets.FORMING_CERTIFICATE }}
           
       - name: Create forming private key file
         run: |
-          working-directory: /routers/data/
+          working-directory: ./routers/data/
           touch forming.private.key
           cat << EOF >> forming.private.key
           ${{ secrets.FORMING_PRIVATE }}
       
       - name: Create root CA file
         run: |
-          working-directory: /routers/data/
+          working-directory: ./routers/data/
           touch root-CA.crt
           cat << EOF >> root-CA.crt
           ${{ secrets.ROOT_CA }}
