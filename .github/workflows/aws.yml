@@ -40,19 +40,16 @@ jobs:
           
       - name: Create forming private key file
         run: |
-          working-directory: ./routers/data
           touch forming.private.key
           cat << "${{ secrets.FORMING_PRIVATE }}" >> forming.private.key    
  
       - name: Create forming certificate file
         run: |
-          working-directory: ./routers/data
           touch forming-certificate.pem.crt
           cat << "${{ secrets.FORMING_CERTIFICATE }}" >> forming-certificate.pem.crt    
 
       - name: Create root certificate file
         run: |
-          working-directory: ./routers/data
           touch root-CA.crt
           cat << "${{ secrets.ROOT_CA }}" >> root-CA.crt  
           
@@ -63,7 +60,7 @@ jobs:
           npm install
       
       - name: Make zip file
-        run: zip -r formingbooth_sound.zip ./routers/data
+        run: zip -r formingbooth_sound.zip .
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
