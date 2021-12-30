@@ -56,12 +56,16 @@ jobs:
           touch root-CA.crt
           cat << "${{ secrets.ROOT_CA }}" >> root-CA.crt  
           
-      - name: npm install, build
+      - name: npm install
         run: |
           # Build the project, then
-          # deploy to Azure Web App.
           npm install
-      
+          
+      - name: npm build
+        run: |
+          # Build the project, then
+          npm run build
+          
       - name: Make zip file
         run: zip -r formingbooth_sound.zip .
 
