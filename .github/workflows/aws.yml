@@ -36,8 +36,22 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          cat << EOF >> .env
-          ${{ secrets.ENV }}
+          cat << "${{ secrets.ENV }}" >> .env
+          
+      - name: Create forming private key file
+        run: |
+          touch forming.private.key
+          cat << "${{ secrets.FORMING_PRIVATE }}" >> forming.private.key    
+ 
+      - name: Create forming certificate file
+        run: |
+          touch forming-certificate.pem.crt
+          cat << "${{ secrets.FORMING_CERTIFICATE }}" >> forming-certificate.pem.crt    
+
+      - name: Create root certificate file
+        run: |
+          touch root-CA.crt
+          cat << "${{ secrets.ROOT_CA }}" >> root-CA.crt  
           
       - name: npm install, build
         run: |
