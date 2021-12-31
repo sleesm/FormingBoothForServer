@@ -55,7 +55,7 @@ jobs:
         run: |
           touch root-CA.crt
           cat << "${{ secrets.ROOT_CA }}" >> root-CA.crt  
-          
+
       - name: Make zip file
         run: zip -r formingbooth_sound.zip .
 
