@@ -56,11 +56,6 @@ jobs:
           touch root-CA.crt
           cat << "${{ secrets.ROOT_CA }}" >> root-CA.crt  
 
-      - name: npm install, build
-        run: |
-          # Build the project, then
-          npm install
-          
       - name: Make zip file
         run: zip -r formingbooth_sound.zip .
 
