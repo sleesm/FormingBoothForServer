@@ -59,9 +59,7 @@ jobs:
       - name: npm install, build
         run: |
           # Build the project, then
-          # deploy to Azure Web App.
           npm install
-          npm run build
           
       - name: Make zip file
         run: zip -r formingbooth_sound.zip .
