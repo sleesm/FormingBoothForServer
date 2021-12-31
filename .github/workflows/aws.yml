@@ -36,27 +36,31 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          cat << ${{ secrets.ENV }} >> .env
+          cat << EOF >> .env
+          ${{ secrets.ENV }}
           
       - name: Create forming private key file
       
         working-directory : ./routers/data
         run: |
           touch forming.private.key
-          cat << ${{ secrets.FORMING_PRIVATE }} >> forming.private.key    
- 
+          cat << EOF >> forming.private.key    
+          ${{ secrets.FORMING_PRIVATE }}
+          
       - name: Create forming certificate file
         working-directory : ./routers/data
         run: |
           touch forming-certificate.pem.crt
-          cat << ${{ secrets.FORMING_CERTIFICATE }} >> forming-certificate.pem.crt    
-
+          cat << EOF >> forming-certificate.pem.crt    
+          ${{ secrets.FORMING_CERTIFICATE }} 
+          
       - name: Create root certificate file
         working-directory : ./routers/data
         run: |
           touch root-CA.crt
-          cat << ${{ secrets.ROOT_CA }} >> root-CA.crt  
-
+          cat << EOF >> root-CA.crt  
+          ${{ secrets.ROOT_CA }}
+          
       - name: Make zip file
         run: zip -r formingbooth_sound.zip .
 
