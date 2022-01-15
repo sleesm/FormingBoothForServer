@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
  router.get('/setCurrentScene', (req, res) => {
   console.log("currentScene update");
 
-  Player.findOneAndUpdate({"date" : req.body.date, "round" : req.body.round, "email" : req.body.email}, {$set: {"currentScene" : req.body}})
+  Player.findOneAndUpdate({"date" : req.body.date, "round" : req.body.round, "email" : req.body.email}, {$set: {"currentScene" : req.body.currentScene}})
   .then((playerData) => {
      if (!playerData) return res.status(404).send({ err: 'playerData not found' });
   })
