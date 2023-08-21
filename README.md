@@ -33,6 +33,15 @@
 
 
 ## Tech Stack
-Unity, Arduino, AWS IOT Core, NodeJS, MongoDB, AWS EC2, AWS CodeDepoly, AWS S3, AWS IAM, Kinect V2, Photon Network, GitHub Action
+클라이언트 
+- Unity, Arduino
+- Kinect V2, Photon Network
+
+서버
+- NodeJS, MongoDB
+- AWS EC2, AWS CodeDepoly, AWS S3, AWS IAM, GitHub Action
+
+Arduino와 Unity 통신을 위한 MQTT 사용
+- AWS IOT Core
 ![image](https://github.com/sleesm/FormingBoothForServer/assets/60386794/628cf1e3-e3e6-4707-8d28-5519c82e211f)
 
