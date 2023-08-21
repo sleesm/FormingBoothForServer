@@ -27,5 +27,6 @@
 ![image](https://github.com/sleesm/formingbooth_server/assets/60386794/03af5003-3158-4de2-98b1-ca10c6fb896f)
 
 ## [🎞데모 영상](https://file.notion.so/f/s/7c57d6cb-0bd1-45a9-ba8b-5efe0ed24e31/%EA%B0%90%EA%B0%81%EC%9D%98_%EA%B0%90%EA%B0%81_%EC%8B%9C%EC%97%B0_%EC%98%81%EC%83%81.mp4?id=24e9eb84-7c8e-428f-9c1b-1063c8e4c381&table=block&spaceId=f833c68d-6d0d-4322-a6fd-0beb1962db26&expirationTimestamp=1692712800000&signature=WQV76HgAnaHAveYlFTJllLYbRCXY4eQ59lTMXKHnXgo&downloadName=%EA%B0%90%EA%B0%81%EC%9D%98+%EA%B0%90%EA%B0%81+%EC%8B%9C%EC%97%B0+%EC%98%81%EC%83%81.mp4)
-## Tech Stack
 
+## Tech Stack
+Unity, Arduino, AWS IOT Core, NodeJS, MongoDB, AWS EC2, AWS CodeDepoly, AWS S3, AWS IAM, Kinect V2, Photon Network, GitHub Action
