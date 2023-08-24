@@ -19,7 +19,22 @@
 
 ![image](https://github.com/sleesm/FormingBoothForServer/assets/60386794/59a2cbb7-2cab-47d4-a3d0-6f175350e991)
 
+## Tech Stack
+### ✔️Frond-end
 
+<img src="https://img.shields.io/badge/Unity-black?style=for-the-badge&logo=unity&logoColor=white"> <img src="https://img.shields.io/badge/arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white">
+**Kinect V2, Photon Network**
+
+### ✔️Back-end
+<img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white">
+<img src="https://img.shields.io/badge/amazon ec2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white"> <img src="https://img.shields.io/badge/amazon s3-569A31?style=for-the-badge&logo=amazons3&logoColor=white"> <img src="https://img.shields.io/badge/github actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white"> **AWS CodeDepoly, AWS IAM**
+
+### ✔️Arduino와 Unity 통신을 위한 MQTT 사용
+**AWS IOT Core**
+
+### ✔️시스템 아키텍처
+
+![image](https://github.com/sleesm/FormingBoothForServer/assets/60386794/628cf1e3-e3e6-4707-8d28-5519c82e211f)
 ## Overview 
 1. 현실의 방 체험 영상 (관객, 오퍼레인터 관점 모두 포함)
 
@@ -40,18 +55,4 @@
 5. 실제 온라인 관객의 전시 체험 영상
 
 ![ezgif-4-fe9acb2189 (1)](https://github.com/sleesm/FormingBoothForServer/assets/60386794/6ea76314-8bf4-4929-b8d1-7ebd090c07cd)
-
-
-## Tech Stack
-클라이언트 
-- Unity, Arduino
-- Kinect V2, Photon Network
-
-서버
-- NodeJS, MongoDB
-- AWS EC2, AWS CodeDepoly, AWS S3, AWS IAM, GitHub Action
-
-Arduino와 Unity 통신을 위한 MQTT 사용
-- AWS IOT Core
-![image](https://github.com/sleesm/FormingBoothForServer/assets/60386794/628cf1e3-e3e6-4707-8d28-5519c82e211f)
 
